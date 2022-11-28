@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.Wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(2, 52, 108);
+  color: white;
+}
+.Wrapper p {
+  margin-top: -15px;
+}
+.Wrapper .tlac {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  width: 100%;
+  padding: 1em;
+  gap: 0.4em;
+}
+.Wrapper .tlac .btn_rob {
+  border: 2px solid rgb(15, 169, 212);
+  border-radius: 10px;
+  width: 20%;
+  padding: 0.4em;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+}
+
+.flip {
+  width: 100%;
+  height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  background-color: rgb(2, 52, 108);
+}
+
+.phone {
+  height: 50px;
+  width: 100px;
+  border: 3px solid rgb(237, 237, 237);
+  border-radius: 10px;
+  -webkit-animation: rotate 1.5s ease-in-out infinite alternate;
+          animation: rotate 1.5s ease-in-out infinite alternate;
+  /* display: none; */
+}
+
+.message {
+  color: rgb(255, 255, 255);
+  font-size: 1.3em;
+  margin-top: 40px;
+  /* display: none; */
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-90deg);
+  }
+  100% {
+    transform: rotate(-90deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-90deg);
+  }
+  100% {
+    transform: rotate(-90deg);
+  }
+}
+@media only screen and (max-width: 450px) {
+  .flip {
+    transition: 0.3s;
+    display: flex;
+  }
+  .Wrapper {
+    display: none;
+  }
+}/*# sourceMappingURL=style.css.map */
