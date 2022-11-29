@@ -46,50 +46,53 @@
 
 <body>
 
-
+<button id="btn1">TEST</button>
 
 	<p>joystick 1 X:</p>
-<b><p id="JOY1X"></p> </b>	
+	<p id="x1"></p> 
 	<p>joystick 1 Y:</p>
-	<p id="JOY1Y"></p>
+	<p id="y1"></p>
 	<p>joystick 2 X:</p>
-	<p id="JOY2X"></p>
+	<p id="x2"></p>
 	<p>joystick 2 Y:</p>
-	<p id="JOY2Y"></p>
-
+	<p id="y2"></p>
 
 	
-
 	<!--ZÁPIS DO CORDS.TXT-->
 
 	<script>
-		function WriteCords() {
-			$.ajax({
-				url: 'write.php',
-				success: function(data) {
-					$('.result').html(data);
-				}
-			})
-		}
+		function ReadData() {
+
+var x1 = document.getElementById("x1").innerHTML = joy1X.value;
+
+var y1 = document.getElementById("y1").innerHTML = joy1Y.value;
+
+var x2 = document.getElementById("x2").innerHTML = joy2X.value;
+
+var y2 = document.getElementById("y2").innerHTML = joy2Y.value;
+
+
+
+$.ajax({
+    type: 'POST',
+    url: 'write.php',                
+    data: {x1:x1,y2:y2,x2:x2,y2:y2},
+ success: function(data) {
+
+ }  
+})
+
+}
+
+
 
 		$(document).ready(function() {
 
 			setInterval(ReadData, 50);
 		});
 	</script>
-	<script>
-		function ReadData() {
 
-			document.getElementById("JOY1X").innerHTML = joy1X.value;
 
-			document.getElementById("JOY1Y").innerHTML = joy1Y.value;
-
-			document.getElementById("JOY2X").innerHTML = joy2X.value;
-
-			document.getElementById("JOY2Y").innerHTML = joy2Y.value;
-
-		}
-	</script>
 
 	<!--KONEC ZÁPISU-->
 
@@ -147,7 +150,7 @@
 		// Create JoyStick object into the DIV 'joy2Div'
 		var joy2Param = {
 			"title": "joystick2",
-			"autoReturnToCenter": true
+			"autoReturnToCenter": false
 		};
 		var Joy2 = new JoyStick('joy2Div', joy2Param);
 
